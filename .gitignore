@@ -1,0 +1,4 @@
+node_modules/
+res.json
+creds.json
+.env
