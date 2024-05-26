@@ -3,14 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>YouTube Subscription Manager</title>
   </head>
   <body>
-    <h1>Google Auth</h1>
     <% if (!authed) { %>
     <a href="<%= url %>">Authenticate with Google</a>
     <% } else { %>
-    <h2>Authenticated</h2>
+    <h2>Welcome, you are an authenticated user</h2>
     <a href="/execute">List YouTube Subscriptions</a>
     <% } %>
   </body>
