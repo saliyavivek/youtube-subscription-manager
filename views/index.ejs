@@ -10,6 +10,12 @@
     <a href="<%= url %>">Authenticate with Google</a>
     <% } else { %>
     <h2>Welcome, you are an authenticated user</h2>
+    <% if (userInfo) { %>
+    <p>User Info:</p>
+    <p>Name: <%= userInfo.name %></p>
+    <p>Picture: <img src="<%= userInfo.picture %>" alt="User Picture" /></p>
+    <p>Locale: <%= userInfo.locale %></p>
+    <% } %>
     <a href="/execute">List YouTube Subscriptions</a>
     <% } %>
   </body>

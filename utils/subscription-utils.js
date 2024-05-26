@@ -9,7 +9,7 @@ async function listSubscriptions(auth) {
     do {
       const response = await youtube.subscriptions.list({
         part: "snippet,contentDetails,subscriberSnippet",
-        channelId: "UCcYIOoTFAeqtn4xX1ymjVpw",
+        mine: true,
         maxResults: 50,
         pageToken: nextPageToken,
       });
