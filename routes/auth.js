@@ -15,6 +15,8 @@ router.get("/", (req, res) => {
         "https://www.googleapis.com/auth/userinfo.profile",
         "https://www.googleapis.com/auth/youtube.readonly",
         "https://www.googleapis.com/auth/youtube",
+        "https://www.googleapis.com/auth/userinfo.profile",
+        "https://www.googleapis.com/auth/userinfo.email",
       ],
     });
     res.render("index", { url, authed });
@@ -31,6 +33,7 @@ router.get("/", (req, res) => {
         res.render("index", { url: "", authed });
       } else {
         // Render the page with authenticated user information
+        console.log(response);
         res.render("index", { url: "", authed, userInfo: response.data });
       }
     });

@@ -4,19 +4,42 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>YouTube Subscription Manager</title>
+    <link rel="stylesheet" href="css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
+    />
   </head>
   <body>
-    <% if (!authed) { %>
-    <a href="<%= url %>">Authenticate with Google</a>
-    <% } else { %>
-    <h2>Welcome, you are an authenticated user</h2>
-    <% if (userInfo) { %>
-    <p>User Info:</p>
-    <p>Name: <%= userInfo.name %></p>
-    <p>Picture: <img src="<%= userInfo.picture %>" alt="User Picture" /></p>
-    <p>Locale: <%= userInfo.locale %></p>
-    <% } %>
-    <a href="/execute">List YouTube Subscriptions</a>
-    <% } %>
+    <div class="main">
+      <% if (!authed) { %>
+      <div class="main-not-authed">
+        <div class="not-auth">
+          <p>Sign in to view your subscribed channels.</p>
+          <a href="<%= url %>" class="login-with-google-btn">
+            Sign in with Google
+          </a>
+          <!-- <a >Authenticate with Google</a> -->
+        </div>
+      </div>
+      <% } else { %> <% if (userInfo) { %>
+      <div class="main-authed">
+        <div class="card">
+          <div class="card-body">
+            <img
+              class="card-img"
+              src="<%= userInfo.picture %>"
+              alt="User Picture"
+            />
+            <div class="card-right">
+              <h5 class="card-title"><%= userInfo.name %></h5>
+              <p class="card-email"><%= userInfo.email %></p>
+            </div>
+          </div>
+          <a href="/execute" class="btn btn-primary">Get My Subscriptions</a>
+        </div>
+      </div>
+      <% } %> <% } %>
+    </div>
   </body>
 </html>
