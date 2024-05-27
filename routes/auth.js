@@ -6,8 +6,7 @@ import fs from "fs";
 const router = express.Router();
 
 router.get("/", (req, res) => {
-  const authed = req.cookies.authed === "true"; // Read the authed cookie
-
+  const authed = req.signedCookies.authed === "true"; // Read the authed cookie
   if (!authed) {
     const url = oauth2Client.generateAuthUrl({
       access_type: "offline",
@@ -50,6 +49,7 @@ router.get("/google/redirect", async (req, res) => {
 
     res.cookie("authed", true, {
       expires: expiryDate,
+      signed: true,
     });
 
     res.redirect("/");

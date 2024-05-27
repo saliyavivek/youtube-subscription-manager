@@ -13,7 +13,7 @@
   <body>
     <div class="wrapper">
       <h2 class="title_main">
-        Showing subscription list of <%=
+        Showing Youtube Channels Subscribed By <%=
         subscriptions[0].subscriberSnippet.title %>
       </h2>
       <div class="table-responsive-sm">
@@ -31,7 +31,7 @@
             <tr>
               <th scope="row">
                 <a
-                  href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
+                  href="https://www.youtube.com/<%= subs.channelDetails.customUrl%>"
                   target="_blank"
                 >
                   <img
@@ -45,12 +45,31 @@
                 <div class="info">
                   <h3>
                     <a
-                      href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
+                      href="https://www.youtube.com/<%= subs.channelDetails.customUrl%>"
                       target="_blank"
                       ><%= subs.snippet.title %></a
                     >
                   </h3>
-                  <p class="info-description ellipse">
+                  <div class="info-content-details">
+                    <p class="info-custom-url">
+                      <a
+                        href="https://www.youtube.com/<%= subs.channelDetails.customUrl%>"
+                        target="_blank"
+                      >
+                        <%= subs.channelDetails.customUrl %></a
+                      >
+                    </p>
+                    <span> • </span>
+                    <p>
+                      <%=formatSubscriberCount(subs.channelDetails.subscriberCount)
+                      %> subscribers
+                    </p>
+                    <span> • </span>
+                    <p class="info-video-count">
+                      <%= subs.contentDetails.totalItemCount %> videos
+                    </p>
+                  </div>
+                  <p class="info-description">
                     <%= subs.snippet.description ? subs.snippet.description :
                     "No description provided."%>
                   </p>

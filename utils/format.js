@@ -1,21 +1,6 @@
 function formatDate(isoDate) {
   const date = new Date(isoDate);
 
-  // Define arrays for month names
-  // const monthNames = [
-  //   "January",
-  //   "February",
-  //   "March",
-  //   "April",
-  //   "May",
-  //   "June",
-  //   "July",
-  //   "August",
-  //   "September",
-  //   "October",
-  //   "November",
-  //   "December",
-  // ];
   const monthNames = [
     "Jan",
     "Feb",
@@ -40,4 +25,14 @@ function formatDate(isoDate) {
   return `${day} ${month} ${year}`;
 }
 
-export { formatDate };
+function formatSubscriberCount(subscriberCount) {
+  if (subscriberCount >= 1000000) {
+    return (subscriberCount / 1000000).toFixed(1).replace(/\.0$/, "") + "M";
+  } else if (subscriberCount >= 1000) {
+    return (subscriberCount / 1000).toFixed(1).replace(/\.0$/, "") + "K";
+  } else {
+    return subscriberCount.toString();
+  }
+}
+
+export { formatDate, formatSubscriberCount };

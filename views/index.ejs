@@ -14,12 +14,22 @@
     <div class="main">
       <% if (!authed) { %>
       <div class="main-not-authed">
+        <div class="not-authed-title">
+          <p>Streamline Your YouTube Subscriptions</p>
+        </div>
+        <div class="not-authed-desc">
+          <p>
+            Welcome to our YouTube Subscription Manager, your ultimate tool for
+            effortlessly organizing and managing your YouTube subscriptions.
+            Whether you're subscribed to hundreds of channels or just a few
+            favorites, our platform helps you keep track of all your
+            subscriptions in one place.
+          </p>
+        </div>
         <div class="not-auth">
-          <p>Sign in to view your subscribed channels.</p>
           <a href="<%= url %>" class="login-with-google-btn">
             Sign in with Google
           </a>
-          <!-- <a >Authenticate with Google</a> -->
         </div>
       </div>
       <% } else { %> <% if (userInfo) { %>
