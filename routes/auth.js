@@ -59,4 +59,9 @@ router.get("/google/redirect", async (req, res) => {
   }
 });
 
+router.get("/logout", async (req, res) => {
+  res.cookie("authed", false);
+  res.redirect("/");
+});
+
 export default router;

@@ -19,14 +19,14 @@
         </div>
         <div class="not-authed-desc">
           <p>
-            Welcome to our YouTube Subscription Manager, your ultimate tool for
-            effortlessly organizing and managing your YouTube subscriptions.
-            Whether you're subscribed to hundreds of channels or just a few
-            favorites, our platform helps you keep track of all your
-            subscriptions in one place.
+            Your ultimate tool for effortlessly organizing and managing your
+            YouTube subscriptions. Whether you're subscribed to hundreds of
+            channels or just a few favorites, our platform helps you keep track
+            of all your subscriptions in one place.
           </p>
         </div>
         <div class="not-auth">
+          <p>You must be signed in to continue</p>
           <a href="<%= url %>" class="login-with-google-btn">
             Sign in with Google
           </a>
@@ -34,19 +34,16 @@
       </div>
       <% } else { %> <% if (userInfo) { %>
       <div class="main-authed">
-        <div class="card">
-          <div class="card-body">
-            <img
-              class="card-img"
-              src="<%= userInfo.picture %>"
-              alt="User Picture"
-            />
-            <div class="card-right">
-              <h5 class="card-title"><%= userInfo.name %></h5>
-              <p class="card-email"><%= userInfo.email %></p>
-            </div>
-          </div>
-          <a href="/execute" class="btn btn-primary">Get My Subscriptions</a>
+        <div class="authed-title">
+          <p>
+            Welcome, <%= userInfo.name %> <% if(userInfo.verified_email ===
+            true) { %> <b>verified</b> <% } else { %> <b>unverified</b> <% } %>
+          </p>
+          <p>You are logged in as <%= userInfo.email %></p>
+          <p>
+            <a href="/execute">my subscriptions</a>&nbsp;
+            <a href="/logout">logout</a>
+          </p>
         </div>
       </div>
       <% } %> <% } %>
