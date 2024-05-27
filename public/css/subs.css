@@ -37,10 +37,13 @@ body {
 .info .info-description {
     overflow: hidden;
     text-overflow: ellipsis;
+    color: #202124;
+}
+
+.info .ellipse {
     display: -webkit-box;
     -webkit-line-clamp: 3;
     -webkit-box-orient: vertical;
-    color: #202124;
 }
 
 .info a {

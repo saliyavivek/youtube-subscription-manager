@@ -33,7 +33,6 @@ router.get("/", (req, res) => {
         res.render("index", { url: "", authed });
       } else {
         // Render the page with authenticated user information
-        console.log(response);
         res.render("index", { url: "", authed, userInfo: response.data });
       }
     });

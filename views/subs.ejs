@@ -16,55 +16,62 @@
         Showing subscription list of <%=
         subscriptions[0].subscriberSnippet.title %>
       </h2>
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">Avatar</th>
-            <th scope="col">Channel Description</th>
-            <th scope="col">Subscribed on</th>
-            <th scope="col"></th>
-          </tr>
-        </thead>
-        <tbody>
-          <% for(let subs of subscriptions) { %>
-          <tr>
-            <th scope="row">
-              <a
-                href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
-                target="_blank"
-              >
-                <img
-                  class="avatar"
-                  src="<%= subs.snippet.thumbnails.medium.url %>"
-                  alt=""
-                />
-              </a>
-            </th>
-            <td>
-              <div class="info">
-                <h3>
-                  <a
-                    href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
-                    target="_blank"
-                    ><%= subs.snippet.title %></a
-                  >
-                </h3>
-                <p class="info-description"><%= subs.snippet.description %></p>
-              </div>
-            </td>
-            <td><%= formatDate(subs.snippet.publishedAt) %></td>
-            <td>
-              <form
-                method="POST"
-                action="/channel/<%= subs.id %>?_method=DELETE"
-              >
-                <button class="btn btn-danger">Unsubscribe</button>
-              </form>
-            </td>
-          </tr>
-          <% } %>
-        </tbody>
-      </table>
+      <div class="table-responsive-sm">
+        <table class="table">
+          <thead>
+            <tr>
+              <th scope="col">Avatar</th>
+              <th scope="col">Channel Description</th>
+              <th scope="col">Subscribed on</th>
+              <th scope="col"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <% for(let subs of subscriptions) { %>
+            <tr>
+              <th scope="row">
+                <a
+                  href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
+                  target="_blank"
+                >
+                  <img
+                    class="avatar"
+                    src="<%= subs.snippet.thumbnails.medium.url %>"
+                    alt=""
+                  />
+                </a>
+              </th>
+              <td>
+                <div class="info">
+                  <h3>
+                    <a
+                      href="https://www.youtube.com/channel/<%= subs.snippet.resourceId.channelId %>"
+                      target="_blank"
+                      ><%= subs.snippet.title %></a
+                    >
+                  </h3>
+                  <p class="info-description ellipse">
+                    <%= subs.snippet.description ? subs.snippet.description :
+                    "No description provided."%>
+                  </p>
+                </div>
+              </td>
+              <td style="text-align: center; vertical-align: middle">
+                <%= formatDate(subs.snippet.publishedAt) %>
+              </td>
+              <td style="text-align: center; vertical-align: middle">
+                <form
+                  method="POST"
+                  action="/channel/<%= subs.id %>?_method=DELETE"
+                >
+                  <button class="btn btn-danger">Unsubscribe</button>
+                </form>
+              </td>
+            </tr>
+            <% } %>
+          </tbody>
+        </table>
+      </div>
     </div>
   </body>
 </html>
