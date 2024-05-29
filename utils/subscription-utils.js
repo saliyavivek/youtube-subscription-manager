@@ -94,4 +94,28 @@ async function unsubscribe(auth, subscriptionId) {
   }
 }
 
-export { listSubscriptions, unsubscribe };
+async function addSubscription(auth, channelId) {
+  const youtube = google.youtube({ version: "v3", auth });
+
+  try {
+    const response = await youtube.subscriptions.insert({
+      part: "snippet",
+      resource: {
+        snippet: {
+          resourceId: {
+            kind: "youtube#channel",
+            channelId: channelId,
+          },
+        },
+      },
+    });
+
+    console.log(`Successfully subscribed to channel ID: ${channelId}`);
+    return response.data;
+  } catch (err) {
+    console.error("Error subscribing to the channel", err);
+    throw err;
+  }
+}
+
+export { listSubscriptions, unsubscribe, addSubscription };

@@ -1,6 +1,10 @@
 import express from "express";
 import { oauth2Client } from "../config/credentials.js";
-import { listSubscriptions, unsubscribe } from "../utils/subscription-utils.js";
+import {
+  listSubscriptions,
+  unsubscribe,
+  addSubscription,
+} from "../utils/subscription-utils.js";
 import { formatDate, formatSubscriberCount } from "../utils/format.js";
 
 const router = express.Router();
@@ -30,6 +34,19 @@ router.delete("/channel/:channelId", async (req, res) => {
   if (req.signedCookies.authed === "true") {
     try {
       await unsubscribe(oauth2Client, channelId);
+      res.redirect("/execute");
+    } catch (error) {
+      console.log(error);
+      res.redirect("/");
+    }
+  }
+});
+
+router.post("/channel/:channelId", async (req, res) => {
+  const channelId = req.params.channelId;
+  if (req.signedCookies.authed === "true") {
+    try {
+      await addSubscription(oauth2Client, channelId);
       res.redirect("/execute");
     } catch (error) {
       console.log(error);
