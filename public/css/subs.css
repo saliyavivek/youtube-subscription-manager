@@ -69,3 +69,12 @@ body {
     color: gray;
     margin-top: -10px;
 }
+
+.dropdown {
+    text-align: center;
+}
+
+.dropdown button {
+    font-weight: bold;
+    padding: 0 !important;
+}

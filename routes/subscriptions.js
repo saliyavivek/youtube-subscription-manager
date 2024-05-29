@@ -7,9 +7,10 @@ const router = express.Router();
 
 // List Subscriptions Route
 router.get("/execute", async (req, res) => {
+  let { order } = req.query;
   if (req.signedCookies.authed === "true") {
     try {
-      const subscriptions = await listSubscriptions(oauth2Client);
+      const subscriptions = await listSubscriptions(oauth2Client, order);
       res.render("subs", {
         subscriptions,
         formatDate,

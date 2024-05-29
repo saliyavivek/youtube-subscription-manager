@@ -16,15 +16,44 @@
         Showing Youtube Channels Subscribed By <%=
         subscriptions[0].subscriberSnippet.title %>
       </h2>
-      <form>Search<input type="text" placeholder="find channels" /></form>
       <div class="table-responsive-sm">
         <table class="table">
           <thead>
             <tr>
               <th scope="col">Avatar</th>
               <th scope="col">Channel Description</th>
-              <th scope="col">Subscribed on</th>
-              <th scope="col"></th>
+              <th scope="col" style="text-align: center">Subscribed on</th>
+              <th scope="col">
+                <div class="dropdown">
+                  <button
+                    class="btn dropdown-toggle"
+                    type="button"
+                    data-bs-toggle="dropdown"
+                    aria-expanded="false"
+                  >
+                    Order by
+                  </button>
+                  <ul class="dropdown-menu">
+                    <li>
+                      <a
+                        class="dropdown-item"
+                        href="/execute?order=alphabetical"
+                        >alphabetical</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/execute?order=relevance"
+                        >relevance</a
+                      >
+                    </li>
+                    <li>
+                      <a class="dropdown-item" href="/execute?order=unread"
+                        >unread</a
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </th>
             </tr>
           </thead>
           <tbody>
@@ -93,5 +122,6 @@
         </table>
       </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   </body>
 </html>

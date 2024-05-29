@@ -1,33 +1,6 @@
 import { google } from "googleapis";
 
-// async function listSubscriptions(auth) {
-//   const youtube = google.youtube({ version: "v3", auth });
-//   let allSubscriptions = [];
-//   let nextPageToken = null;
-
-//   try {
-//     do {
-//       const response = await youtube.subscriptions.list({
-//         part: "snippet,contentDetails,subscriberSnippet",
-//         mine: true,
-//         maxResults: 50,
-//         pageToken: nextPageToken,
-//         order: "alphabetical",
-//       });
-
-//       allSubscriptions = allSubscriptions.concat(response.data.items);
-//       nextPageToken = response.data.nextPageToken;
-//     } while (nextPageToken);
-
-//     console.log(allSubscriptions);
-//     return allSubscriptions;
-//   } catch (err) {
-//     console.error("Execute error while listing subscriptions", err);
-//     throw err;
-//   }
-// }
-
-async function listSubscriptions(auth) {
+async function listSubscriptions(auth, order) {
   const youtube = google.youtube({ version: "v3", auth });
   let allSubscriptions = [];
   let nextPageToken = null;
@@ -39,7 +12,7 @@ async function listSubscriptions(auth) {
         mine: true,
         maxResults: 50,
         pageToken: nextPageToken,
-        order: "alphabetical",
+        order: order,
       });
 
       allSubscriptions = allSubscriptions.concat(response.data.items);
@@ -52,7 +25,7 @@ async function listSubscriptions(auth) {
     );
 
     // Split the channelIds array into chunks if it's too large for a single API request
-    const chunkSize = 50; // YouTube API has a maximum limit of 50 ids per request
+    const chunkSize = 50;
     const channelChunks = [];
     for (let i = 0; i < channelIds.length; i += chunkSize) {
       channelChunks.push(channelIds.slice(i, i + chunkSize));
