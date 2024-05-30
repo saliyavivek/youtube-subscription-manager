@@ -5,6 +5,7 @@ import {
   unsubscribe,
   addSubscription,
   getChannelId,
+  searchChannel,
 } from "../utils/subscription-utils.js";
 import {
   formatDate,
@@ -48,26 +49,30 @@ router.delete("/channel/:channelId", async (req, res) => {
   }
 });
 
-// router.post("/channel/subscribe", async (req, res) => {
-//   const channelId = req.body.channelId;
-//   if (req.signedCookies.authed === "true") {
-//     try {
-//       await addSubscription(oauth2Client, channelId);
-//       res.redirect("/execute");
-//     } catch (error) {
-//       console.log(error);
-//       res.redirect("/");
-//     }
-//   }
-// });
+// Render Channel View
+router.get("/channel/find", async (req, res) => {
+  res.render("channel");
+});
 
+// Search
+router.get("/search", async (req, res) => {
+  const query = req.query.q;
+  if (!query) {
+    return res.status(400).send("Query parameter is required");
+  }
+
+  const results = await searchChannel(oauth2Client, query);
+  res.render("channel", { results, query });
+});
+
+// Subscribe
 router.post("/channel/subscribe", async (req, res) => {
   const input = req.body.channelId;
 
   try {
     const channelId = await getChannelId(oauth2Client, input);
     const subscription = await addSubscription(oauth2Client, channelId);
-    // res.json({ success: true, subscription });
+    console.log("Channel Subscribed", subscription);
     res.redirect("/execute");
   } catch (err) {
     console.error("Failed to subscribe to the channel:", err);

@@ -90,7 +90,6 @@ body {
     justify-content: center;
     align-items: center;
     margin: 40px 0;
-
 }
 
 .add-channel-input form {
@@ -107,8 +106,4 @@ input#channelid {
     padding: 5.5px;
     border-radius: 5px;
     border: 1px solid lightgray;
-}
-
-input#channelId:focus {
-    outline: 1px solid darkgray;
 }

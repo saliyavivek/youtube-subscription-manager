@@ -143,4 +143,27 @@ async function getChannelId(auth, input) {
   }
 }
 
-export { listSubscriptions, unsubscribe, addSubscription, getChannelId };
+async function searchChannel(auth, query) {
+  try {
+    const youtube = google.youtube({ version: "v3", auth });
+
+    const response = await youtube.search.list({
+      part: "snippet",
+      type: "channel",
+      q: query,
+    });
+
+    return response.data.items;
+  } catch (error) {
+    console.error("Error Searching Channel", error);
+    throw error;
+  }
+}
+
+export {
+  listSubscriptions,
+  unsubscribe,
+  addSubscription,
+  getChannelId,
+  searchChannel,
+};
