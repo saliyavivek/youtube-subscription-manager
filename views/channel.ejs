@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link rel="stylesheet" href="/css/channel.css" />
+    <link rel="stylesheet" href="/css/subs.css" />
     <link
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css"
@@ -13,7 +13,10 @@
   <body>
     <div class="wrapper">
       <div class="wrapper-top">
-        <h2 class="title_main">Search Results for <%= query %></h2>
+        <h2 class="title_main">
+          Showing <%= resInfo.resultsPerPage %> results for <%= query %> out of
+          <%= resInfo.totalResults %>
+        </h2>
       </div>
       <div class="table-responsive-sm">
         <table class="table">
@@ -21,12 +24,31 @@
             <tr>
               <th scope="col">Avatar</th>
               <th scope="col">Channel Description</th>
+              <th scope="col">Subscribe</th>
             </tr>
           </thead>
           <tbody>
             <% for(let res of results) { %>
             <tr>
-              <td><%= res.snippet.channelTitle %></td>
+              <td>
+                <img
+                  class="avatar"
+                  src="<%= res.snippet.thumbnails.medium.url %>"
+                  alt="avatar"
+                />
+              </td>
+              <td>
+                <div class="info">
+                  <h3><%= res.snippet.title %></h3>
+                  <p class="info-description"><%= res.snippet.description %></p>
+                </div>
+              </td>
+              <td style="vertical-align: middle">
+                <form id="subscribe-form">
+                  <!-- fix post req -->
+                  <button class="btn btn-success">Subscribe</button>
+                </form>
+              </td>
             </tr>
             <% } %>
           </tbody>

@@ -61,13 +61,18 @@ router.get("/search", async (req, res) => {
     return res.status(400).send("Query parameter is required");
   }
 
-  const results = await searchChannel(oauth2Client, query);
-  res.render("channel", { results, query });
+  const response = await searchChannel(oauth2Client, query);
+  const results = response.data.items;
+  res.render("channel", {
+    results,
+    query,
+    resInfo: response.data.pageInfo,
+  });
 });
 
 // Subscribe
 router.post("/channel/subscribe", async (req, res) => {
-  const input = req.body.channelId;
+  const input = req.params.channelId;
 
   try {
     const channelId = await getChannelId(oauth2Client, input);

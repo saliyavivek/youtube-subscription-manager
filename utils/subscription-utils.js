@@ -152,8 +152,7 @@ async function searchChannel(auth, query) {
       type: "channel",
       q: query,
     });
-
-    return response.data.items;
+    return response;
   } catch (error) {
     console.error("Error Searching Channel", error);
     throw error;
