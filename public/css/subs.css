@@ -67,7 +67,7 @@ body {
     align-items: flex-start;
     gap: 5px;
     color: gray;
-    margin-top: -10px;
+    margin-top: -5px;
 }
 
 .dropdown {
@@ -77,4 +77,38 @@ body {
 .dropdown button {
     font-weight: bold;
     padding: 0 !important;
+}
+
+.result-info {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.add-channel-input {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 40px 0;
+
+}
+
+.add-channel-input form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.add-channel-input form label {
+    font-weight: 500;
+}
+
+input#channelid {
+    padding: 5.5px;
+    border-radius: 5px;
+    border: 1px solid lightgray;
+}
+
+input#channelId:focus {
+    outline: 1px solid darkgray;
 }

@@ -35,4 +35,14 @@ function formatSubscriberCount(subscriberCount) {
   }
 }
 
-export { formatDate, formatSubscriberCount };
+function convertViewsCount(views) {
+  if (views < 10000000) {
+    return views.toLocaleString(); // Comma separated for readability
+  } else if (views < 1000000000) {
+    return (views / 10000000).toFixed(1) + " Crores";
+  } else {
+    return (views / 1000000000).toFixed(1) + " Billion";
+  }
+}
+
+export { formatDate, formatSubscriberCount, convertViewsCount };

@@ -14,7 +14,6 @@ async function listSubscriptions(auth, order) {
         pageToken: nextPageToken,
         order: order,
       });
-
       allSubscriptions = allSubscriptions.concat(response.data.items);
       nextPageToken = response.data.nextPageToken;
     } while (nextPageToken);
@@ -41,7 +40,6 @@ async function listSubscriptions(auth, order) {
 
     // Wait for all promises to resolve
     const channelsResponses = await Promise.all(channelDetailsPromises);
-
     // Flatten the array of channel responses into a single array of channels
     const channels = channelsResponses.flatMap(
       (response) => response.data.items
@@ -59,6 +57,7 @@ async function listSubscriptions(auth, order) {
           ? `https://www.youtube.com/${channel.brandingSettings.channel.customUrl}`
           : `https://www.youtube.com/channel/${channel.id}`,
         subscriberCount: channel.statistics.subscriberCount,
+        viewsCount: channel.statistics.viewCount,
       };
       return map;
     }, {});
@@ -118,4 +117,30 @@ async function addSubscription(auth, channelId) {
   }
 }
 
-export { listSubscriptions, unsubscribe, addSubscription };
+// Function to get channel ID from input (either channel name or ID)
+async function getChannelId(auth, input) {
+  const youtube = google.youtube({ version: "v3", auth });
+
+  // Check if the input is already a valid channel ID
+  if (/^[a-zA-Z0-9_-]{24}$/.test(input)) {
+    return input;
+  }
+
+  // Otherwise, treat it as a channel name and fetch the channel ID
+  try {
+    const response = await youtube.channels.list({
+      part: "id,statistics",
+      forHandle: input,
+    });
+    if (response.data.items && response.data.items.length > 0) {
+      return response.data.items[0].id;
+    } else {
+      throw new Error("Channel not found.");
+    }
+  } catch (err) {
+    console.error("Error fetching channel ID", err);
+    throw err;
+  }
+}
+
+export { listSubscriptions, unsubscribe, addSubscription, getChannelId };
