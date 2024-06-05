@@ -4,6 +4,7 @@
 The YouTube Subscription Manager is a web application that allows users to view and manage their YouTube channel subscriptions. Users can search for channels, sort their subscriptions, unsubscribe from channels, and subscribe to new ones directly from the interface.
 
 ## Features
+unticked boxes shows *feature to be built in the future* 
 - [x] **View Subscriptions**: Display a list of YouTube channels the user is subscribed to.
 - [x] **Sort Subscriptions**: Sort subscriptions by alphabetical order, relevance, or activity.
 - [x] **Search Channels**: Search for YouTube channels by name or ID.
