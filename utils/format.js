@@ -36,10 +36,14 @@ function formatSubscriberCount(subscriberCount) {
 }
 
 function convertViewsCount(views) {
-  if (views < 10000000) {
-    return views.toLocaleString(); // Comma separated for readability
+  if (views < 1000) {
+    return views.toString();
+  } else if (views < 100000) {
+    return (views / 1000).toFixed(1) + "K";
+  } else if (views < 10000000) {
+    return (views / 100000).toFixed(1) + " Lakh";
   } else if (views < 1000000000) {
-    return (views / 10000000).toFixed(1) + " Crores";
+    return (views / 10000000).toFixed(1) + " Crore";
   } else {
     return (views / 1000000000).toFixed(1) + " Billion";
   }
