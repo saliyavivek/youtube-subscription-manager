@@ -35,14 +35,12 @@
       <% } else { %> <% if (userInfo) { %>
       <div class="main-authed">
         <div class="authed-title">
+          <p class="welcome-message">Welcome, <%= userInfo.name %></p>
+          <!-- <p class="logged-in-as">You are logged in as <%= userInfo.email %></p> -->
           <p>
-            Welcome, <%= userInfo.name %> <% if(userInfo.verified_email ===
-            true) { %> <b>verified</b> <% } else { %> <b>unverified</b> <% } %>
-          </p>
-          <p>You are logged in as <%= userInfo.email %></p>
-          <p>
-            <a href="/execute">my subscriptions</a>&nbsp;
-            <a href="/logout">logout</a>
+            <a href="/execute" class="btn btn-view">View my subscriptions</a
+            >&nbsp;
+            <a href="/logout" class="btn btn-danger btn-logout">Log out</a>
           </p>
         </div>
       </div>

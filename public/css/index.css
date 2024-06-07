@@ -18,43 +18,6 @@ body {
     align-items: center;
 }
 
-.card {
-    width: 400px;
-}
-
-.card-body {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.card-body img {
-    height: 80px;
-    width: 80px;
-    border-radius: 50%;
-}
-
-.card-right {
-    display: flex;
-    flex-direction: column;
-}
-
-.card-title {
-    font-size: 32px;
-    color: #3b3a3a !important;
-    margin: 0 !important;
-}
-
-.card-email {
-    font-size: 14px;
-    color: darkgray;
-    padding-left: 3px;
-}
-
-.btn {
-    margin: 0 22px 16px 22px;
-}
-
 .main-not-authed {
     min-height: 100vh;
     max-width: 100%;
@@ -115,4 +78,24 @@ body {
     flex-direction: column;
     justify-content: center;
     align-items: center;
+}
+
+.authed-title .welcome-message{
+    font-size: 100px;
+    line-height: 110px;
+    text-align: start;
+    color: #202124;
+}
+
+.logged-in-as {
+    font-size: 14px;
+}
+
+.btn-view {
+    background-color: #34a44e !important;
+    color: #fff !important;
+}
+
+.btn-view:hover {
+    background-color: #268d3e !important;
 }

@@ -72,8 +72,7 @@ router.get("/search", async (req, res) => {
 
 // Subscribe
 router.post("/channel/subscribe", async (req, res) => {
-  const input = req.params.channelId;
-
+  const input = req.body.channelId;
   try {
     const channelId = await getChannelId(oauth2Client, input);
     const subscription = await addSubscription(oauth2Client, channelId);

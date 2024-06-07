@@ -17,7 +17,7 @@
         <b><%= subscriptions[0].subscriberSnippet.title %></b>
       </h2>
       <div class="add-channel-input">
-        <form action="/search" method="GET">
+        <!-- <form action="/search" method="GET">
           <label for="channelid">Find channel</label>
           <input
             name="q"
@@ -26,6 +26,16 @@
             placeholder="Enter YouTube channel name or ID"
           />
           <button id="search-button">Search</button>
+        </form> -->
+        <form action="/channel/subscribe" method="POST">
+          <label for="channelid">Find channel</label>
+          <input
+            name="channelId"
+            type="text"
+            id="channelId"
+            placeholder="Enter YouTube channel name or ID"
+          />
+          <button id="search-button" type="submit">Subscribe</button>
         </form>
       </div>
       <div class="result-info">
