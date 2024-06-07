@@ -20,3 +20,40 @@ unticked boxes shows *feature to be built in the future*
 ## Prerequisites
 - Node.js (version 14.x or higher)
 - npm (Node Package Manager)
+
+## Screenshots
+
+### Home Page
+![Home Page](screenshots/home_page.png)
+
+### Sign in with Google
+![Sign in with Google](screenshots/sign_in_w_google.png)
+
+### Subscription List
+![Subscription List](screenshots/subscriptions.png)
+
+## Installation
+
+1. Clone the repository:
+   
+   ```bash
+   git clone https://github.com/saliyavivek/youtube-subscription-manager.git
+
+2. Install dependencies:
+   
+   ```bash
+   cd youtube-subscription-manager
+   npm install
+   
+## Usage
+
+### Set up your Google API credentials:
+
+1. Create a project on the Google Developer Console.
+2. Enable the YouTube Data API v3.
+3. Create OAuth 2.0 credentials and download the JSON file.
+4. Place the JSON file in your project directory and rename it to `credentials.json`.
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
