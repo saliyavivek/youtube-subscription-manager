@@ -26,10 +26,10 @@
           </p>
         </div>
         <div class="not-auth">
-          <p><i>You must be signed in to continue</i></p>
           <a href="<%= url %>" class="login-with-google-btn">
             Sign in with Google
           </a>
+          <p><i>You must be signed in to continue</i></p>
         </div>
       </div>
       <% } else { %> <% if (userInfo) { %>
@@ -37,10 +37,10 @@
         <div class="authed-title">
           <p class="welcome-message">Welcome, <%= userInfo.name %></p>
           <!-- <p class="logged-in-as">You are logged in as <%= userInfo.email %></p> -->
+          <p class="welcome-message">We're thrilled to have you here.</p>
           <p>
-            <a href="/execute" class="btn btn-view">View my subscriptions</a
-            >&nbsp;
-            <a href="/logout" class="btn btn-danger btn-logout">Log out</a>
+            <a href="/execute" class="btn-view">View my subscriptions</a>&nbsp;
+            <a href="/logout" class="btn-logout">Log out</a>
           </p>
         </div>
       </div>

@@ -18,7 +18,7 @@ body {
     align-items: center;
 }
 
-.main-not-authed {
+.main-not-authed, .main-authed {
     min-height: 100vh;
     max-width: 100%;
     display: flex;
@@ -54,7 +54,7 @@ body {
 .login-with-google-btn {
     transition: background-color 0.3s, box-shadow 0.3s;
     padding: 8px 16px 12px 42px;
-    /* margin-top: 60px; */
+    margin-bottom: 10px;
     border: none;
     border-radius: 3px;
     box-shadow: 0 -1px 0 rgba(0, 0, 0, 0.04), 0 1px 1px rgba(0, 0, 0, 0.25);
@@ -76,8 +76,8 @@ body {
 .authed-title {
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
+    justify-content: flex-start;
+    align-items: flex-start;
 }
 
 .authed-title .welcome-message{
@@ -91,11 +91,30 @@ body {
     font-size: 14px;
 }
 
-.btn-view {
-    background-color: #34a44e !important;
-    color: #fff !important;
+.btn-view, .btn-logout {
+  background-color: rgba(51, 51, 51, 0.05);
+  border-radius: 8px;
+  border-width: 0;
+  color: #333333;
+  cursor: pointer;
+  display: inline-block;
+  font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  list-style: none;
+  margin: 0;
+  padding: 10px 12px;
+  text-align: center;
+  transition: all 200ms;
+  vertical-align: baseline;
+  white-space: nowrap;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  text-decoration: none;
 }
 
-.btn-view:hover {
-    background-color: #268d3e !important;
+.btn-view:hover, .btn-logout:hover {
+    background-color: rgba(51, 51, 51, 0.105);
 }
