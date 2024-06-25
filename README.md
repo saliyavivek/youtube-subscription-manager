@@ -23,8 +23,8 @@ unticked boxes shows *feature to be built in the future*
 
 ## Screenshots
 
-### Home Page
-![Home Page](screenshots/home_page.png)
+### Landing Page
+![Home Page](screenshots/landing_page.png)
 
 ### Sign in with Google
 ![Sign in with Google](screenshots/sign_in_w_google.png)
