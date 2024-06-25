@@ -80,7 +80,7 @@ router.post("/channel/subscribe", async (req, res) => {
     res.redirect("/execute");
   } catch (err) {
     console.error("Failed to subscribe to the channel:", err);
-    res.status(500).json({ success: false, error: err.message });
+    res.status(500).send(`${err.message}`);
   }
 });
 

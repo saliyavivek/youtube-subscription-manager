@@ -8,6 +8,11 @@ body {
     font-family: "Inter", sans-serif !important;
 }
 
+th, .dropdown button {
+    font-size: 20px;
+    font-weight: 400 !important;
+}
+
 .wrapper {
     min-height: 100vh;
     max-width: 100%;
@@ -26,6 +31,10 @@ body {
 .avatar {
     width: 150px;
     border-radius: 8px;
+}
+
+.avatar:hover {
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
 }
 
 .info {
@@ -106,4 +115,28 @@ input#channelid {
     padding: 5.5px;
     border-radius: 5px;
     border: 1px solid lightgray;
+}
+
+.btn-logout {
+    border-radius: 4px;
+    border-width: 0;
+    color: #333333;
+    cursor: pointer;
+    display: inline-block;
+    font-family: "Haas Grot Text R Web", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    line-height: 20px;
+    margin: 0;
+    padding: 10px 12px;
+    text-align: center;
+    transition: all 200ms;
+    vertical-align: baseline;
+    white-space: nowrap;
+    touch-action: manipulation;
+    text-decoration: none;
+}
+  
+.btn-logout:hover {
+    background-color: rgba(70, 69, 69, 0.089);
 }

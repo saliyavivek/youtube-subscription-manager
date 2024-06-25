@@ -35,7 +35,9 @@
             id="channelId"
             placeholder="Enter YouTube channel name or ID"
           />
-          <button id="search-button" type="submit">Subscribe</button>
+          <button id="search-button" class="btn-subscribe" type="submit">
+            Subscribe
+          </button>
         </form>
       </div>
       <div class="result-info">
@@ -43,7 +45,7 @@
           Showing <b><%= subscriptions.length %></b> results out of
           <b><%= subscriptions.length %></b>
         </p>
-        <a href="/logout">logout</a>
+        <a href="/logout" class="btn-logout">Log out</a>
       </div>
 
       <div class="table-responsive-sm">
