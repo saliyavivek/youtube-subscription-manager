@@ -10,9 +10,9 @@ unticked boxes shows _feature to be built in the future_
 
 - [x] **View Subscriptions**: Display a list of YouTube channels the user is subscribed to.
 - [x] **Sort Subscriptions**: Sort subscriptions by alphabetical order, relevance, or activity.
-- [x] **Search Channels**: Search for YouTube channels by name or ID.
 - [x] **Unsubscribe**: Unsubscribe from channels.
-- [ ] **Subscribe**: Subscribe to new channels.
+- [x] **Subscribe**: Subscribe to new channels.
+- [ ] **Search Channels**: Search for YouTube channels by name or ID.
 - [ ] **Pagination**: Load more subscriptions dynamically.
 
 ## Technologies Used
