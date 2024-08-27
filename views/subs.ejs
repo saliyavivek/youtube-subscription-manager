@@ -28,14 +28,18 @@
           <button id="search-button">Search</button>
         </form> -->
         <form action="/channel/subscribe" method="POST">
-          <label for="channelid">Find channel</label>
+          <label for="channelid">Find & Subscribe</label>
           <input
             name="channelId"
             type="text"
             id="channelId"
-            placeholder="Enter YouTube channel name or ID"
+            placeholder="Search YouTube"
           />
-          <button id="search-button" class="btn-subscribe" type="submit">
+          <button
+            id="search-button"
+            class="btn btn-danger btn-subscribe"
+            type="submit"
+          >
             Subscribe
           </button>
         </form>
